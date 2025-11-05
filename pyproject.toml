@@ -1,3 +1,8 @@
+[project]
+name = "debiasor"
+version = "0.0.0"
+description = "Tools for debiasing ML predictions"
+
 [project.optional-dependencies]
 dev = [
     "pytest",

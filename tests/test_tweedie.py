@@ -4,7 +4,7 @@ from debiasor import TweedieCorrection
 def test_no_noise(no_noise_data):
     preds, targets = no_noise_data
     tweedie = TweedieCorrection().fit(preds, targets)
-    corrected = tweedie.predict_mean(preds)
+    corrected = tweedie.debiased_mean(preds)
     assert np.isclose(corrected, preds.mean())
 
 def test_bias_reduction(noisy_data):
@@ -12,7 +12,7 @@ def test_bias_reduction(noisy_data):
     tweedie = TweedieCorrection().fit(cal_preds, cal_targets)
 
     naive = preds.mean()
-    corrected = tweedie.predict_mean(preds)
+    corrected = tweedie.debiased_mean(preds)
     true = targets.mean()
 
     assert abs(corrected - true) < abs(naive - true)
