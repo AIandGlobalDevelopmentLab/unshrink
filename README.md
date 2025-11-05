@@ -6,3 +6,10 @@
     <a style="text-decoration:none !important;" href="https://opensource.org/licenses/MIT" alt="License"><img src="https://img.shields.io/badge/license-MIT-750014" /></a>
     <a style="text-decoration:none !important;" href="https://github.com/AIandGlobalDevelopmentLab/debiasor/actions/workflows/ci.yml" alt="CI"><img src="https://github.com/AIandGlobalDevelopmentLab/debiasor/actions/workflows/ci.yml/badge.svg" /></a>
 </p>
+
+## Example
+```
+debiaser = TweedieDebiaser()
+debiaser.fit(cal_predictions, cal_targets)
+debiased_predictions = debiaser.debiased_predictions(predictions)
+```
