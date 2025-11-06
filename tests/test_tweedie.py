@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pytest
-from debiasor import TweedieDebiaser
+from unshrink import TweedieDebiaser
 
 def test_no_noise(no_noise_data):
     preds, targets = no_noise_data
