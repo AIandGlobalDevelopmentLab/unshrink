@@ -10,4 +10,5 @@ dev = [
     "numpy",
     "scipy",
     "scikit-learn",
+    "pandas",
 ]

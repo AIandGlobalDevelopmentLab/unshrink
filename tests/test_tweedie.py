@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import pytest
 from debiasor import TweedieDebiaser
 
@@ -66,4 +67,30 @@ def test_debiased_predictions_mean_consistency(noisy_data):
     dm = tweedie.debiased_mean(preds)
 
     # mean of per-element debiased predictions should equal debiased_mean
+    assert np.isclose(dp.mean(), dm)
+
+
+def test_works_with_pandas_inputs_no_noise(no_noise_data):
+    """Ensure TweedieDebiaser accepts pandas.Series when there is no noise."""
+    preds, targets = no_noise_data
+    preds_s = pd.Series(preds)
+    targets_s = pd.Series(targets)
+
+    tweedie = TweedieDebiaser().fit(preds_s, targets_s)
+    corrected = tweedie.debiased_mean(preds_s)
+    assert np.isclose(corrected, preds_s.mean())
+
+
+def test_works_with_pandas_inputs_noisy(noisy_data):
+    """Ensure TweedieDebiaser accepts pandas.Series for calibration and prediction sets."""
+    cal_preds, cal_targets, preds, targets = noisy_data
+    cal_preds_s = pd.Series(cal_preds)
+    cal_targets_s = pd.Series(cal_targets)
+    preds_s = pd.Series(preds)
+
+    tweedie = TweedieDebiaser().fit(cal_preds_s, cal_targets_s)
+
+    dp = tweedie.debiased_predictions(preds_s)
+    dm = tweedie.debiased_mean(preds_s)
+
     assert np.isclose(dp.mean(), dm)
