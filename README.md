@@ -7,7 +7,6 @@
 <a href="github.com/AIandGlobalDevelopmentLab/unshrink#gh-dark-mode-only">
   <img src="https://github.com/AIandGlobalDevelopmentLab/unshrink/blob/main/inst/logo_dark.webp?raw=true#gh-dark-mode-only" alt="asa logo" width="400">
 </a>
-    />
 
 </p>
 <p align="center">
