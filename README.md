@@ -1,5 +1,16 @@
 <p align="center">
-    <img width="400" height="400" alt="unshrink logo" src="https://github.com/user-attachments/assets/93f52767-36f1-43e1-9627-918a4901823d" />
+    <img width="400" height="400" alt="unshrink logo"
+    src="https://github.com/user-attachments/assets/93f52767-36f1-43e1-9627-918a4901823d"
+    />
+	
+<a href="github.com/AIandGlobalDevelopmentLab/unshrink#gh-light-mode-only">
+  <img src="inst/images/logo.webp#gh-light-mode-only" alt="asa logo" width="400">
+</a>
+
+<a href="github.com/AIandGlobalDevelopmentLab/unshrink#gh-dark-mode-only">
+  <img src="inst/images/logo_dark.webp#gh-dark-mode-only" alt="asa logo" width="400">
+</a>
+
 
 </p>
 <p align="center">
