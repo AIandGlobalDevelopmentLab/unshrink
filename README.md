@@ -4,11 +4,11 @@
     />
 	
 <a href="github.com/AIandGlobalDevelopmentLab/unshrink#gh-light-mode-only">
-  <img src="inst/images/logo.webp#gh-light-mode-only" alt="asa logo" width="400">
+  <img src="https://github.com/AIandGlobalDevelopmentLab/unshrink/blob/main/inst/logo.webp?raw=true#gh-light-mode-only" alt="asa logo" width="400">
 </a>
 
 <a href="github.com/AIandGlobalDevelopmentLab/unshrink#gh-dark-mode-only">
-  <img src="inst/images/logo_dark.webp#gh-dark-mode-only" alt="asa logo" width="400">
+  <img src="https://github.com/AIandGlobalDevelopmentLab/unshrink/blob/main/inst/logo_dark.webp?raw=true#gh-dark-mode-only" alt="asa logo" width="400">
 </a>
 
 
