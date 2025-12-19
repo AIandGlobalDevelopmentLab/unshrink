@@ -90,13 +90,10 @@ LccDebiaser()
 ## Citation
 
 ```bibtex
-@misc{pettersson2025debiasingmachinelearningpredictions,
-      title={Debiasing Machine Learning Predictions for Causal Inference Without Additional Ground Truth Data: "One Map, Many Trials" in Satellite-Driven Poverty Analysis},
-      author={Markus B. Pettersson and Connor T. Jerzak and Adel Daoud},
-      year={2025},
-      eprint={2508.01341},
-      archivePrefix={arXiv},
-      primaryClass={stat.ML},
-      url={https://arxiv.org/abs/2508.01341},
+@inproceedings{pettersson2025debiasingmachinelearningpredictions,
+  title        = {Debiasing Machine Learning Predictions for Causal Inference Without Additional Ground Truth Data: One Map, Many Trials in Satellite-Driven Poverty Analysis},
+  author       = {Markus Pettersson and Connor T. Jerzak and Adel Daoud},
+  booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI-26), Special Track on AI for Social Impact},
+  year         = {2026},
 }
 ```
