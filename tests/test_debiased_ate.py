@@ -81,3 +81,18 @@ def test_debiased_ate_uniform_weights_equal_unweighted(Debiaser, no_noise_data):
 
     assert np.isclose(unweighted, ones_weighted)
     assert np.isclose(unweighted, const_weighted)
+
+
+@pytest.mark.parametrize("Debiaser", [TweedieDebiaser, LccDebiaser])
+def test_debiased_ate_zero_sum_weights_raises(Debiaser, no_noise_data):
+    """Weights that sum to zero should raise ValueError."""
+    preds, targets = no_noise_data
+    deb = Debiaser().fit(preds, targets)
+
+    treated = preds[:10]
+    control = preds[10:20]
+
+    zero_weights = np.zeros(len(treated))
+
+    with pytest.raises(ValueError):
+        deb.debiased_ate(treated, control, iptw_treated=zero_weights)

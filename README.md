@@ -3,7 +3,7 @@
 
 </p>
 <p align="center">
-    <a style="text-decoration:none !important;" href="https://arxiv.org/abs/2506.09627" alt="arXiv"><img src="https://img.shields.io/badge/paper-arXiv-red" /></a>
+    <a style="text-decoration:none !important;" href="https://arxiv.org/abs/2508.01341" alt="arXiv"><img src="https://img.shields.io/badge/paper-arXiv-red" /></a>
     <a style="text-decoration:none !important;" href="https://opensource.org/licenses/MIT" alt="License"><img src="https://img.shields.io/badge/license-MIT-750014" /></a>
     <a style="text-decoration:none !important;" href="https://github.com/AIandGlobalDevelopmentLab/unshrink/actions/workflows/ci.yml" alt="CI"><img src="https://github.com/AIandGlobalDevelopmentLab/unshrink/actions/workflows/ci.yml/badge.svg" /></a>
 </p>
@@ -90,13 +90,13 @@ LccDebiaser()
 ## Citation
 
 ```bibtex
-@misc{depieuchon2025benchmarkingdebiasingmethodsllmbased,
-      title={Benchmarking Debiasing Methods for LLM-based Parameter Estimates},
-      author={Nicolas Audinet de Pieuchon and Adel Daoud and Connor T. Jerzak and Moa Johansson and Richard Johansson},
+@misc{pettersson2025debiasingmachinelearningpredictions,
+      title={Debiasing Machine Learning Predictions for Causal Inference Without Additional Ground Truth Data: "One Map, Many Trials" in Satellite-Driven Poverty Analysis},
+      author={Markus B. Pettersson and Connor T. Jerzak and Adel Daoud},
       year={2025},
-      eprint={2506.09627},
+      eprint={2508.01341},
       archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2506.09627},
+      primaryClass={stat.ML},
+      url={https://arxiv.org/abs/2508.01341},
 }
 ```

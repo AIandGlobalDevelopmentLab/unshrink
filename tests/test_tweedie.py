@@ -3,6 +3,21 @@ import pandas as pd
 import pytest
 from unshrink import TweedieDebiaser
 
+
+def test_debiased_mean_before_fit():
+    """Calling debiased_mean before fit should raise RuntimeError."""
+    tweedie = TweedieDebiaser()
+    with pytest.raises(RuntimeError):
+        tweedie.debiased_mean(np.array([1.0, 2.0, 3.0]))
+
+
+def test_debiased_predictions_before_fit():
+    """Calling debiased_predictions before fit should raise RuntimeError."""
+    tweedie = TweedieDebiaser()
+    with pytest.raises(RuntimeError):
+        tweedie.debiased_predictions(np.array([1.0, 2.0, 3.0]))
+
+
 def test_no_noise(no_noise_data):
     preds, targets = no_noise_data
     tweedie = TweedieDebiaser().fit(preds, targets)

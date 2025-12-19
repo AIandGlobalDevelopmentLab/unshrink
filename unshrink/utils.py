@@ -18,7 +18,7 @@ def evaluate_debiaser(
     return {
         "true_mean": float(np.mean(targets)),
         "naive_mean": float(np.mean(predictions)),
-        "corrected_mean": float(debiaser.predict_mean(predictions)),
-        "bias_after": float(abs(debiaser.predict_mean(predictions) - np.mean(targets))),
+        "corrected_mean": float(debiaser.debiased_mean(predictions)),
+        "bias_after": float(abs(debiaser.debiased_mean(predictions) - np.mean(targets))),
         "bias_before": float(abs(np.mean(predictions) - np.mean(targets))),
     }
