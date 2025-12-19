@@ -14,12 +14,15 @@
 
 ## Installation
 
+Install directly from GitHub:
 ```bash
-pip install unshrink
+pip install git+https://github.com/AIandGlobalDevelopmentLab/unshrink.git
 ```
 
 For development:
 ```bash
+git clone https://github.com/AIandGlobalDevelopmentLab/unshrink.git
+cd unshrink
 pip install -e .[dev]
 ```
 
