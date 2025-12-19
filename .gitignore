@@ -217,3 +217,8 @@ __marimo__/
 
 # VS Code
 .vscode/
+
+CLAUDE.md
+/tmp/
+/reports/
+/tasks/
