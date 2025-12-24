@@ -23,7 +23,7 @@
  ║  UNSHRINK v0.1.0                         STATUS: DEBIASING   ║
  ╠══════════════════════════════════════════════════════════════╣
  ║  METHOD: Tweedie                                             ║
- ║  FORMULA: E[μ|z] = z + σ² · d/dz(log p(z))                   ║
+ ║  FORMULA: E[μ|z] = z - σ² · d/dz(log p(z))                   ║
  ║                                                              ║
  ║  [INPUT: BIASED]             [OUTPUT: RESTORED]              ║
  ║  Variance: 0.42 (▼ 58%)      Variance: 1.01 (✔ OK)           ║
