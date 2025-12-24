@@ -20,7 +20,7 @@
 
 ```
  ╔══════════════════════════════════════════════════════════════╗
- ║  UNSHRINK v0.1.0                         STATUS: DEBIASed    ║
+ ║  UNSHRINK v0.1.0                         STATUS: DEBIASED    ║
  ╠══════════════════════════════════════════════════════════════╣
  ║  METHOD: Tweedie (Berkson / score-swap)                      ║
  ║  PSEUDO-OUTCOME:  ỹ = z - σ² · d/dz( log p_{\hat Y}(z) )     ║
