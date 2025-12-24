@@ -22,7 +22,7 @@
  ╔══════════════════════════════════════════════════════════════╗
  ║  UNSHRINK v0.1.0                         STATUS: DEBIASING   ║
  ╠══════════════════════════════════════════════════════════════╣
- ║  METHOD: Empirical Bayes (Tweedie)                           ║
+ ║  METHOD: Tweedie                                             ║
  ║  FORMULA: E[μ|z] = z + σ² · d/dz(log p(z))                   ║
  ║                                                              ║
  ║  [INPUT: BIASED]             [OUTPUT: RESTORED]              ║
