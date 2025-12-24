@@ -22,19 +22,20 @@
  ╔══════════════════════════════════════════════════════════════╗
  ║  UNSHRINK v0.1.0                         STATUS: DEBIASING   ║
  ╠══════════════════════════════════════════════════════════════╣
- ║  METHOD: Tweedie                                             ║
- ║  FORMULA: E[μ|z] = z - σ² · d/dz(log p(z))                   ║
+ ║  METHOD: Tweedie (Berkson / score-swap)                      ║
+ ║  PSEUDO-OUTCOME:  ỹ = z - σ² · d/dz( log p_{\hat Y}(z) )     ║
  ║                                                              ║
- ║  [INPUT: BIASED]             [OUTPUT: RESTORED]              ║
- ║  Variance: 0.42 (▼ 58%)      Variance: 1.01 (✔ OK)           ║
+ ║  [INPUT: BIASED]               [OUTPUT: RESTORED]            ║
+ ║  Variance: 0.42 (▼ 58%)        Variance: 1.01 (✔ OK)         ║
  ║                                                              ║
- ║      SpikeAtMean                 TrueDistribution            ║
+ ║      SpikeAtMean                  TrueDistribution           ║
  ║          │                              │                    ║
  ║       ▄▄██▄▄                       ▂▄▆██▆▄▂                  ║
  ║      ▄██████▄                    ▄██████████▄                ║
- ║     ██▀    ▀██                 ▄█▀          ▀█▄              ║
- ║    ─┴────────┴─               ─┴──────────────┴─             ║
+ ║     ██▀    ▀██                  ▄█▀          ▀█▄              ║
+ ║     ─┴────────┴─                ─┴────────────┴─             ║
  ╚══════════════════════════════════════════════════════════════╝
+
 ```
 
 ## Overview
