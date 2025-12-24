@@ -26,7 +26,7 @@
  ║  PSEUDO-OUTCOME:  ỹ = z - σ² · d/dz( log p_{\hat Y}(z) )     ║
  ║                                                              ║
  ║  [INPUT: BIASED]               [OUTPUT: RESTORED]            ║
- ║  Variance: 0.42 (▼ 58%)        Variance: 1.01 (✔ OK)         ║
+ ║  Variance: 0.42 (▼ 58%)        Variance: 1.00 (✔ OK)         ║
  ║                                                              ║
  ║      SpikeAtMean                  TrueDistribution           ║
  ║          │                              │                    ║
