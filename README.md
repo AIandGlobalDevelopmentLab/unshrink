@@ -26,7 +26,7 @@
  ║  PSEUDO-OUTCOME:  y_tilde = z - sigma^2 * d/dz( log p_Y_hat(z) ) ║
  ║                                                                  ║
  ║  [INPUT: BIASED]               [OUTPUT: RESTORED]                ║
- ║  Variance: 0.42 (▼ 58%)        Variance: 1.00 (✔ OK)            ║
+ ║  Variance: 0.42 (▼ 58%)        Variance: 1.00 (✔ OK)             ║
  ║                                                                  ║
  ║      SpikeAtMean                  TrueDistribution               ║
  ║          │                              │                        ║
