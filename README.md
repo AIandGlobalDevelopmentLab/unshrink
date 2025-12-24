@@ -1,4 +1,5 @@
 
+<!---
 <p align="center">
 <a href="github.com/AIandGlobalDevelopmentLab/unshrink#gh-light-mode-only">
   <img src="https://github.com/AIandGlobalDevelopmentLab/unshrink/blob/main/inst/logo.webp?raw=true#gh-light-mode-only" alt="asa logo" width="400">
@@ -14,6 +15,27 @@
     <a style="text-decoration:none !important;" href="https://opensource.org/licenses/MIT" alt="License"><img src="https://img.shields.io/badge/license-MIT-750014" /></a>
     <a style="text-decoration:none !important;" href="https://github.com/AIandGlobalDevelopmentLab/unshrink/actions/workflows/ci.yml" alt="CI"><img src="https://github.com/AIandGlobalDevelopmentLab/unshrink/actions/workflows/ci.yml/badge.svg" /></a>
 </p>
+-->
+
+
+```
+╔══════════════════════════════════════════════════════════════╗
+ ║  UNSHRINK v0.1.0                         STATUS: DEBIASING   ║
+ ╠══════════════════════════════════════════════════════════════╣
+ ║  METHOD: Empirical Bayes (Tweedie)                           ║
+ ║  FORMULA: E[μ|z] = z + σ² · d/dz(log p(z))                   ║
+ ║                                                              ║
+ ║  [INPUT: BIASED]             [OUTPUT: RESTORED]              ║
+ ║  Variance: 0.42 (▼ 58%)      Variance: 1.01 (✔ OK)           ║
+ ║                                                              ║
+ ║      SpikeAtMean                 TrueDistribution            ║
+ ║          │                              │                    ║
+ ║       ▄▄██▄▄                       ▂▄▆██▆▄▂                  ║
+ ║      ▄██████▄                    ▄██████████▄                ║
+ ║     ██▀    ▀██                 ▄█▀          ▀█▄              ║
+ ║    ─┴────────┴─               ─┴──────────────┴─             ║
+ ╚══════════════════════════════════════════════════════════════╝
+```
 
 ## Overview
 
