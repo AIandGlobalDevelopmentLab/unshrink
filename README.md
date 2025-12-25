@@ -40,7 +40,13 @@
 
 ## Overview
 
-**unshrink** is a Python package for debiasing machine learning predictions when there is a distribution shift between calibration data and test data. It corrects systematic biases that arise when model predictions are calibrated on one distribution but applied to another.
+**unshrink** is a Python package for correcting **attenuation bias** in machine learning predictions used for causal inference. When ML models predict outcomes (e.g., poverty levels from satellite imagery), their predictions systematically "shrink toward the mean"—overestimating low values and underestimating high values. This shrinkage causes treatment effects to appear smaller than they actually are.
+
+The package provides two debiasing methods:
+- **TweedieDebiaser**: Empirical Bayes correction using Tweedie's formula with KDE-based score estimation
+- **LccDebiaser**: Linear Calibration Correction via inverse linear regression
+
+Both methods require only a calibration dataset where you have both predictions and ground truth outcomes.
 
 ## Installation
 
@@ -58,6 +64,8 @@ pip install -e .[dev]
 
 ## Quick Start
 
+### Using TweedieDebiaser
+
 ```python
 from unshrink import TweedieDebiaser
 
@@ -71,6 +79,35 @@ debiased_preds = debiaser.debiased_predictions(test_predictions)
 # Or get just the debiased mean
 debiased_mean = debiaser.debiased_mean(test_predictions)
 ```
+
+### Using LccDebiaser
+
+```python
+from unshrink import LccDebiaser
+
+# Linear Calibration Correction - simpler, works well with linear shrinkage
+debiaser = LccDebiaser()
+debiaser.fit(cal_predictions, cal_targets)
+
+debiased_preds = debiaser.debiased_predictions(test_predictions)
+```
+
+### Input Requirements
+
+- `cal_predictions`: numpy array of shape `(n_cal,)` — model predictions for units with ground truth
+- `cal_targets`: numpy array of shape `(n_cal,)` — true outcomes for the same units
+- `test_predictions`: numpy array of shape `(n_test,)` — predictions to debias
+
+**Important**: Calibration predictions should be out-of-sample (use cross-fitting if needed to avoid target leakage).
+
+## When to Use Which Method
+
+| Method | Best For | Pros | Cons |
+|--------|----------|------|------|
+| **TweedieDebiaser** | Nonlinear shrinkage patterns | More flexible; handles complex bias | Requires more calibration data; sensitive to density estimation |
+| **LccDebiaser** | Linear shrinkage patterns | Simple; robust with small samples | Assumes linear relationship between predictions and targets |
+
+**Rule of thumb**: Start with `LccDebiaser` for simplicity. Use `TweedieDebiaser` if you have ample calibration data (n > 500) or suspect nonlinear shrinkage.
 
 ### Estimating Treatment Effects
 
@@ -119,11 +156,14 @@ LccDebiaser()
 
 ## Citation
 
+**Paper**: [arXiv:2508.01341](https://arxiv.org/abs/2508.01341) | [Project Page](https://aidevlab.org/tweedie/)
+
 ```bibtex
 @inproceedings{pettersson2025debiasingmachinelearningpredictions,
   title        = {Debiasing Machine Learning Predictions for Causal Inference Without Additional Ground Truth Data: One Map, Many Trials in Satellite-Driven Poverty Analysis},
   author       = {Markus Pettersson and Connor T. Jerzak and Adel Daoud},
   booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI-26), Special Track on AI for Social Impact},
   year         = {2026},
+  url          = {https://arxiv.org/abs/2508.01341}
 }
 ```
