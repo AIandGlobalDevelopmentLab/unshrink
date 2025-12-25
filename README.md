@@ -38,7 +38,7 @@
 
 ```
 
-## Overview
+## Overview of unshrink 
 
 **unshrink** is a Python package for correcting **attenuation bias** in machine learning predictions used for causal inference. When ML models predict outcomes (e.g., poverty levels from satellite imagery), their predictions systematically "shrink toward the mean"—overestimating low values and underestimating high values. This shrinkage causes treatment effects to appear smaller than they actually are.
 
