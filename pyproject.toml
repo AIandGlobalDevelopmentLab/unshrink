@@ -7,7 +7,7 @@ packages = ["unshrink"]
 
 [project]
 name = "unshrink"
-version = "0.0.0"
+version = "0.1.0"
 description = "Tools for debiasing ML predictions"
 
 [project.optional-dependencies]

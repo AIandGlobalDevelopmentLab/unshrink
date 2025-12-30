@@ -97,6 +97,7 @@ debiased_preds = debiaser.debiased_predictions(test_predictions)
 - `cal_predictions`: numpy array of shape `(n_cal,)` — model predictions for units with ground truth
 - `cal_targets`: numpy array of shape `(n_cal,)` — true outcomes for the same units
 - `test_predictions`: numpy array of shape `(n_test,)` — predictions to debias
+- Both numpy arrays and pandas Series are accepted as input
 
 **Important**: Calibration predictions should be out-of-sample (use cross-fitting if needed to avoid target leakage).
 
@@ -135,7 +136,7 @@ TweedieDebiaser(delta=1e-5)
 - `delta` (float): Step size for numerical differentiation of the log-density. Default: `1e-5`
 
 **Methods:**
-- `fit(cal_predictions, cal_targets)` — Calibrate using labeled data. Learns `sigma_` (residual std) and `kde_` (kernel density estimate).
+- `fit(cal_predictions, cal_targets, cal_predictions_sigma=None, cal_targets_sigma=None)` — Calibrate using labeled data. Optionally provide separate arrays for sigma estimation. Learns `sigma_` (residual std) and `kde_` (kernel density estimate).
 - `debiased_predictions(predictions)` — Returns per-unit debiased predictions as an array.
 - `debiased_mean(predictions)` — Returns the debiased mean as a scalar.
 - `debiased_ate(treated, control, iptw_treated=None, iptw_control=None)` — Returns the debiased average treatment effect.
@@ -153,6 +154,15 @@ LccDebiaser()
 - `debiased_predictions(predictions)` — Returns `(predictions - intercept) / slope`.
 - `debiased_mean(predictions)` — Returns the debiased mean as a scalar.
 - `debiased_ate(treated, control, iptw_treated=None, iptw_control=None)` — Returns the debiased average treatment effect.
+
+### Utilities
+
+```python
+from unshrink import evaluate_debiaser
+
+result = evaluate_debiaser(debiaser, cal_predictions, cal_targets, test_predictions, test_targets)
+# Returns: {true_mean, naive_mean, corrected_mean, bias_before, bias_after}
+```
 
 ## Citation
 
