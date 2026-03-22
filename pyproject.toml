@@ -5,17 +5,23 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 packages = ["unshrink"]
 
+[tool.setuptools.package-data]
+unshrink = ["py.typed"]
+
 [project]
 name = "unshrink"
 version = "0.1.0"
 description = "Tools for debiasing ML predictions"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+]
 
 [project.optional-dependencies]
 dev = [
     "pytest",
     "pytest-cov",
-    "numpy",
-    "scipy",
-    "scikit-learn",
     "pandas",
 ]

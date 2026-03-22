@@ -96,3 +96,31 @@ def test_debiased_ate_zero_sum_weights_raises(Debiaser, no_noise_data):
 
     with pytest.raises(ValueError):
         deb.debiased_ate(treated, control, iptw_treated=zero_weights)
+
+
+@pytest.mark.parametrize("Debiaser", [TweedieDebiaser, LccDebiaser])
+def test_debiased_ate_negative_weights_raise(Debiaser, no_noise_data):
+    preds, targets = no_noise_data
+    deb = Debiaser().fit(preds, targets)
+
+    treated = preds[:10]
+    control = preds[10:20]
+    bad_weights = np.ones(len(treated))
+    bad_weights[0] = -1.0
+
+    with pytest.raises(ValueError):
+        deb.debiased_ate(treated, control, iptw_treated=bad_weights)
+
+
+@pytest.mark.parametrize("Debiaser", [TweedieDebiaser, LccDebiaser])
+def test_debiased_ate_non_finite_weights_raise(Debiaser, no_noise_data):
+    preds, targets = no_noise_data
+    deb = Debiaser().fit(preds, targets)
+
+    treated = preds[:10]
+    control = preds[10:20]
+    bad_weights = np.ones(len(treated))
+    bad_weights[0] = np.nan
+
+    with pytest.raises(ValueError):
+        deb.debiased_ate(treated, control, iptw_treated=bad_weights)
