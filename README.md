@@ -166,7 +166,7 @@ result = evaluate_debiaser(debiaser, cal_predictions, cal_targets, test_predicti
 
 ## Citation
 
-**Paper**: [arXiv:2508.01341](https://arxiv.org/abs/2508.01341) | [Project Page](https://aidevlab.org/tweedie/)
+**Paper**: [DOI](https://doi.org/10.1609/aaai.v40i46.41258) | [arXiv:2508.01341](https://arxiv.org/abs/2508.01341) | [Project Page](https://aidevlab.org/tweedie/)
 
 ```bibtex
 @inproceedings{pettersson2025debiasingmachinelearningpredictions,
