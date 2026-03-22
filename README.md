@@ -174,6 +174,6 @@ result = evaluate_debiaser(debiaser, cal_predictions, cal_targets, test_predicti
   author       = {Markus Pettersson and Connor T. Jerzak and Adel Daoud},
   booktitle    = {Proceedings of the AAAI Conference on Artificial Intelligence (AAAI-26), Special Track on AI for Social Impact},
   year         = {2026},
-  url          = {https://arxiv.org/abs/2508.01341}
+  url          = {https://doi.org/10.1609/aaai.v40i46.41258}
 }
 ```
