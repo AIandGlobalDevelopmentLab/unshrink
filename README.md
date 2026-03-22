@@ -190,7 +190,7 @@ Warnings indicate “computable but fragile,” not “safe to ignore.”
 ## Citation
 
 Paper:
-
+- [AAAI Proceedings](https://doi.org/10.1609/aaai.v40i46.41258)
 - [arXiv:2508.01341](https://arxiv.org/abs/2508.01341)
 - [Project page](https://aidevlab.org/tweedie/)
 
