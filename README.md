@@ -171,7 +171,7 @@ Fitted debiasers expose:
 
 ## Edge Cases and Failure Modes
 
-The package now raises on:
+The package will raises errors on:
 
 - empty, non-finite, or non-1D inputs
 - mismatched calibration array lengths
