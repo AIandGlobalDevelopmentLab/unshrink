@@ -2,7 +2,7 @@
 
 `unshrink` debiases shrunken ML predictions before you reuse them as outcomes in causal inference workflows.
 
-The package keeps the user-facing API small:
+The package keeps the user-facing API compact:
 
 ```python
 from unshrink import LCCDebiaser, TweedieDebiaser
@@ -12,7 +12,7 @@ debiased_mean = debiaser.debiased_mean(test_predictions)
 debiased_ate = debiaser.debiased_ate(treated_predictions, control_predictions)
 ```
 
-What changed in this version is the trust story around that API:
+New version updates:
 
 - stronger validation of calibration data and weights
 - fitted `diagnostics_` on each debiaser
