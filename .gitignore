@@ -219,6 +219,7 @@ __marimo__/
 .vscode/
 
 CLAUDE.md
+.claude/
 /tmp/
 /reports/
 /tasks/
