@@ -100,6 +100,18 @@ def test_invalid_delta_raises(nonlinear_shrinkage_data):
         TweedieDebiaser(delta=0.0).fit(cal_preds, cal_targets)
 
 
+@pytest.mark.parametrize("bad_delta", [float("nan"), float("inf")])
+def test_non_finite_delta_raises(nonlinear_shrinkage_data, bad_delta):
+    cal_preds, cal_targets, _, _ = nonlinear_shrinkage_data
+    with pytest.raises(ValueError, match="delta must be positive and finite"):
+        TweedieDebiaser(delta=bad_delta).fit(cal_preds, cal_targets)
+
+
+def test_set_params_rejects_unknown_params():
+    with pytest.raises(ValueError, match="Invalid parameter"):
+        TweedieDebiaser().set_params(bogus_param=1)
+
+
 def test_rejects_constant_predictions_with_noise():
     cal_targets = np.linspace(0, 1, 100)
     cal_preds = np.ones(100)

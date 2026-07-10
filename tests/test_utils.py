@@ -55,6 +55,8 @@ def test_compare_debiasers_prefers_lcc_for_linear_regime(linear_shrinkage_data):
     assert set(report.metrics) == {"naive", "lcc", "tweedie"}
     assert report.recommended_method == "lcc"
     assert report.metrics["lcc"].pseudo_ate_rmse < report.metrics["naive"].pseudo_ate_rmse
+    assert "composite score" in report.rationale
+    assert "nan" not in report.rationale
 
 
 def test_compare_debiasers_prefers_tweedie_for_nonlinear_regime(nonlinear_shrinkage_data):

@@ -221,6 +221,12 @@ def compare_debiasers(
         for name, values in fold_contrast_estimates.items():
             contrast_estimates[name].extend(values)
 
+    if not contrast_truth:
+        raise ValueError(
+            "No valid contrast draws could be formed on the held-out folds; "
+            "increase the calibration sample size or n_contrast_draws."
+        )
+
     mean_truth_array = np.asarray(mean_truth, dtype=float)
     contrast_truth_array = np.asarray(contrast_truth, dtype=float)
     metrics = {
@@ -241,14 +247,12 @@ def compare_debiasers(
         for name in ("lcc", "tweedie")
     }
     recommended_method = min(candidate_scores, key=candidate_scores.get)
-    recommended_metrics = metrics[recommended_method]
     runner_up = "tweedie" if recommended_method == "lcc" else "lcc"
-    runner_up_metrics = metrics[runner_up]
     rationale = (
-        f"Recommended {recommended_method} because its pseudo-ATE RMSE "
-        f"({recommended_metrics.pseudo_ate_rmse:.4f}) and calibration slope "
-        f"({recommended_metrics.calibration_slope:.3f}) beat {runner_up}'s "
-        f"({runner_up_metrics.pseudo_ate_rmse:.4f}, {runner_up_metrics.calibration_slope:.3f})."
+        f"Recommended {recommended_method} with composite score "
+        f"{candidate_scores[recommended_method]:.4f} vs {candidate_scores[runner_up]:.4f} for "
+        f"{runner_up}; the score combines calibration-slope distance from 1, pseudo-ATE RMSE, "
+        f"mean absolute error, and warning-flag count (lower is better)."
     )
     aggregate_flags = tuple(sorted(set().union(*(metric.warning_flags for metric in metrics.values()))))
     return DebiaserComparisonReport(

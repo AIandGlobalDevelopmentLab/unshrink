@@ -44,7 +44,7 @@ Runtime dependencies:
 
 Supported Python versions:
 
-- `>=3.9,<3.13`
+- `>=3.9`
 
 ## Calibration Assumptions
 
@@ -171,7 +171,7 @@ Fitted debiasers expose:
 
 ## Edge Cases and Failure Modes
 
-The package will raises errors on:
+The package raises errors on:
 
 - empty, non-finite, or non-1D inputs
 - mismatched calibration array lengths

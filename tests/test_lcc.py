@@ -47,6 +47,11 @@ def test_params_roundtrip():
     assert lcc.get_params() == params
 
 
+def test_set_params_rejects_unknown_params():
+    with pytest.raises(ValueError, match="Invalid parameter"):
+        LccDebiaser().set_params(bogus_param=1)
+
+
 def test_debiased_predictions_mean_consistency(linear_shrinkage_data):
     cal_preds, cal_targets, preds, _ = linear_shrinkage_data
     lcc = LccDebiaser().fit(cal_preds, cal_targets)

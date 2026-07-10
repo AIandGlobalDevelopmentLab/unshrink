@@ -12,12 +12,35 @@ unshrink = ["py.typed"]
 name = "unshrink"
 version = "0.1.0"
 description = "Tools for debiasing ML predictions"
-requires-python = ">=3.9,<3.13"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Markus Pettersson" },
+    { name = "Connor T. Jerzak" },
+    { name = "Adel Daoud" },
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering",
+]
 dependencies = [
     "numpy",
     "scipy",
     "scikit-learn",
 ]
+
+[project.urls]
+Homepage = "https://github.com/AIandGlobalDevelopmentLab/unshrink"
+Paper = "https://arxiv.org/abs/2508.01341"
 
 [project.optional-dependencies]
 dev = [

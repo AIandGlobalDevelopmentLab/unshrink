@@ -47,8 +47,8 @@ class TweedieDebiaser(BaseDebiaser):
         else:
             raise ValueError("Either both or neither of cal_predictions_sigma and cal_targets_sigma must be provided.")
 
-        if self.delta is not None and self.delta <= 0:
-            raise ValueError("delta must be positive when provided.")
+        if self.delta is not None and (not np.isfinite(self.delta) or self.delta <= 0):
+            raise ValueError("delta must be positive and finite when provided.")
 
         sigma_residuals = sigma_prediction_array - sigma_target_array
         self.sigma_ = float(np.std(sigma_residuals))

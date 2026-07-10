@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import inspect
 from abc import ABC, abstractmethod
 from typing import Any, Dict, Optional, Sequence
 import warnings
@@ -155,9 +156,21 @@ class BaseDebiaser(ABC):
 
     def get_params(self, deep: bool = True) -> Dict[str, Any]:
         del deep
-        return {key: value for key, value in self.__dict__.items() if not key.endswith("_")}
+        parameter_names = [
+            name
+            for name, parameter in inspect.signature(type(self).__init__).parameters.items()
+            if name != "self"
+            and parameter.kind not in (parameter.VAR_POSITIONAL, parameter.VAR_KEYWORD)
+        ]
+        return {name: getattr(self, name) for name in parameter_names}
 
     def set_params(self, **params: Any) -> "BaseDebiaser":
+        valid_params = self.get_params()
         for key, value in params.items():
+            if key not in valid_params:
+                raise ValueError(
+                    f"Invalid parameter {key!r} for {type(self).__name__}. "
+                    f"Valid parameters are: {sorted(valid_params)}."
+                )
             setattr(self, key, value)
         return self
